@@ -3,16 +3,16 @@ package basic;
 public class Exercise04 {
 
     public String findFibonacciSequence(int num) {
-        if (num < 2) {
+        if (num < 1) {
             return "";
+        } else if (num == 1) {
+            return "1 1";
         } else {
-            String result = "";
-
             int fibo1 = 1;
             int fibo2 = 1;
             int fibo3 = fibo1 + fibo2;
 
-            result += "" + fibo1;
+            String result = "" + fibo1;
 
             while (fibo3 <= num) {
                 result += " " + fibo2;

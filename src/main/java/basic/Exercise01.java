@@ -21,6 +21,8 @@ public class Exercise01 {
 
     public int findLCM(int a, int b) {
 
-        return (findGCD(a, b) <= 0) ? 0 : (a * b / findGCD(a, b));
+        int gcd = findGCD(a, b);
+
+        return (gcd <= 0) ? 0 : (a * b / gcd);
     }
 }

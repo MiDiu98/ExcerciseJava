@@ -10,18 +10,17 @@ public class Exercise05 {
         }
 
         /* If is a quadratic equation */
-        NumberFormat formatter = new DecimalFormat("#0.00");
         int delta = b * b - 4 * a *c;
 
         if (delta < 0) {
             return "The equation has no real roots.";
         } else if (delta == 0) {
             float x = (-b) / (2 * a);
-            return "The root is x = " + formatter.format(x);
+            return String.format("The root is x = %.2f", x);
         } else {
             float x1 = (float) (-b + Math.sqrt(delta)) / (2 * a);
             float x2 = (float) (-b - Math.sqrt(delta)) / (2 * a);
-            return "The roots are x1 = " + formatter.format(x1) + " and x2 = " + formatter.format(x2);
+            return String.format("The roots are x1 = %.2f and x2 = %.2f", x1, x2);
         }
     }
 }

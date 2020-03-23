@@ -9,7 +9,6 @@ public class Exercise05 {
             return "Error: Not is a quadratic equation";
         }
 
-        /* If is a quadratic equation */
         int delta = b * b - 4 * a *c;
 
         if (delta < 0) {

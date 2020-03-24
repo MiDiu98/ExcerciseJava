@@ -17,7 +17,7 @@ public class Exercise10Test {
 
     @Test
     public void test_checkDayValid() {
-        assertEquals(new Exercise10().checkDateValid(31, 9, 2020), false);
+        assertEquals(new Exercise10().checkDateValid(1, 9, 2020), true);
         assertEquals(new Exercise10().checkDateValid(31, 3, 2020), true);
         assertEquals(new Exercise10().checkDateValid(24, 3, 2020), true);
         assertEquals(new Exercise10().checkDateValid(31, 7, 2020), true);
@@ -26,7 +26,14 @@ public class Exercise10Test {
 
         assertEquals(new Exercise10().checkDateValid(30, 2, 2020), false);
         assertEquals(new Exercise10().checkDateValid(29, 2, 2019), false);
-        assertEquals(new Exercise10().checkDateValid(29, 2, 2020), true);
+        assertEquals(new Exercise10().checkDateValid(2, 2, 2020), true);
         assertEquals(new Exercise10().checkDateValid(28, 2, 2019), true);
+    }
+
+    @Test
+    public void test_isLeapYear() {
+        assertEquals(new Exercise10().isLeapYear(2000), true);
+        assertEquals(new Exercise10().isLeapYear(2100), false);
+        assertEquals(new Exercise10().isLeapYear(2020), true);
     }
 }

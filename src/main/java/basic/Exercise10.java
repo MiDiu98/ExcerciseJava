@@ -16,13 +16,13 @@ public class Exercise10 {
 
     public boolean checkDateValid(int d, int m, int y) {
         if ((d < 1) || (m < 1) || (y < 1)) return false;
-        if (((y % 400 == 0) || (y % 4 == 0)) && (y % 100 != 0) && (m == 2)) {
-            if (d > 29) return false;
-            return true;
-        }
-        if ((m == 2) && (d > 28)) return  false;
-        if (((m == 4) || (m == 6) || (m == 9) || (m == 11)) && (d > 30)) return false;
-        if (d > 31) return  false;
-        return  true;
+        if (isLeapYear(y) && (m == 2)) return d <= 29;
+        if ((m == 2) && (d > 28)) return false;
+        if ((m - 4) * (m - 6) * (m - 9) * (m - 11) == 0) return d <= 30;
+        return d <= 31;
+    }
+
+    public boolean isLeapYear(int y) {
+        return (y % 400 == 0) || ((y % 4 == 0) && (y % 100 != 0));
     }
 }

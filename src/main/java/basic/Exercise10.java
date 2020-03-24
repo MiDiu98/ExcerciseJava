@@ -16,8 +16,10 @@ public class Exercise10 {
 
     public boolean checkDateValid(int d, int m, int y) {
         if ((d < 1) || (m < 1) || (y < 1)) return false;
-        if (isLeapYear(y) && (m == 2)) return d <= 29;
-        if ((m == 2) && (d > 28)) return false;
+        if (m == 2) {
+            if (isLeapYear(y)) return d <= 29;
+            return d <= 28;
+        }
         if ((m - 4) * (m - 6) * (m - 9) * (m - 11) == 0) return d <= 30;
         return d <= 31;
     }

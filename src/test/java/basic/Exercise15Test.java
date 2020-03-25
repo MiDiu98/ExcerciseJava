@@ -7,6 +7,6 @@ public class Exercise15Test {
 
     @Test
     public void test_findNumBit() {
-        assertEquals(new Exercise15().findNumBit(23), 29);
+        assertEquals(new Exercise15().reverseBit(23), 29);
     }
 }

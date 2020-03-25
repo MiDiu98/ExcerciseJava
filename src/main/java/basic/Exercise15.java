@@ -2,13 +2,13 @@ package basic;
 
 public class Exercise15 {
 
-    public int findNumBit(int num) {
-        StringBuilder result = new StringBuilder("");
-
+    public int reverseBit(int num) {
+        int rev = 0;
         while (num > 0) {
-            result.append(num % 2);
-            num /= 2;
+            rev <<= 1;
+            if ((num & 1) == 1) rev ^= 1;
+            num >>= 1;
         }
-        return Integer.parseInt(result.toString(), 2);
+        return rev;
     }
 }

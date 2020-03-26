@@ -17,6 +17,7 @@ public class Exercise10Test {
 
     @Test
     public void test_checkDayValid() {
+        assertEquals(new Exercise10().checkDateValid(0, 9, 2020), false);
         assertEquals(new Exercise10().checkDateValid(1, 9, 2020), true);
         assertEquals(new Exercise10().checkDateValid(31, 3, 2020), true);
         assertEquals(new Exercise10().checkDateValid(24, 3, 2020), true);

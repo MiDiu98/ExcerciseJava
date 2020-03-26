@@ -3,18 +3,14 @@ package basic;
 public class Exercise17 {
 
     public double findSqrtByBisection(double num) {
-        double left = 1;
-        double right = num;
+        double left = 0;
+        double right = (num > 1) ? num : 1;
 
-        while (right - left >= 0.0001) {
+        while (right - left >= 0.000001) {
             double mid = (right + left) / 2;
-            if (calF(num, left) * calF(num, mid) < 0) right = mid;
+            if (mid * mid > num) right = mid;
             else left = mid;
         }
         return left;
-    }
-
-    public double calF(double num, double x) {
-        return num - x * x;
     }
 }

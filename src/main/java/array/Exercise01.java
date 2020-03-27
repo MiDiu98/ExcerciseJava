@@ -10,12 +10,11 @@ public class Exercise01 {
 
         Map<Integer, Integer> map = new LinkedHashMap<Integer, Integer>();
 
-        for (int i = 0; i < arr.length; i++) {
-            try {
-                map.put(arr[i], map.get(arr[i]) + 1);
-            }
-            catch (Exception e) {
-                map.put(arr[i], 1);
+        for (int e : arr) {
+            if (map.containsKey(e)) {
+                map.put(e, map.get(e) + 1);
+            } else {
+                map.put(e, 1);
             }
         }
 

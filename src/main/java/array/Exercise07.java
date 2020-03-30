@@ -1,9 +1,6 @@
 package array;
 
-import sun.security.util.ArrayUtil;
-
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 
 public class Exercise07 {
@@ -14,7 +11,8 @@ public class Exercise07 {
         int pos = 0;
 
         for (int i = 1; i < arr.length; i++) {
-            if (arr[i-1] > arr[i]) {
+            if (arr[i-1] > arr[i] || i == arr.length - 1) {
+                if (arr[i-1] < arr[i] && (i == arr.length - 1)) i++;
                 if (i - start > max) {
                     max = i - start;
                     pos = start;

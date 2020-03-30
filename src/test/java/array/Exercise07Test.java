@@ -22,5 +22,13 @@ public class Exercise07Test {
                                 1, 3, 4, 5, 6, 7, 8, 9,
                                 1, 2, 3, 4, 5, 6, 7, 8, 9}),
                 Arrays.asList(  1, 2, 3, 4, 5, 6, 7, 8, 9));
+
+        assertEquals(
+                new Exercise07().findMaxAscSubArr(
+                        new int[]{
+                                1, 2, 4,
+                                1, 3, 4, 5, 6, 7, 8, 9,
+                                1, 2, 3, 4, 5, 6, 7, 8, 1}),
+                Arrays.asList(  1, 3, 4, 5, 6, 7, 8, 9 ));
     }
 }

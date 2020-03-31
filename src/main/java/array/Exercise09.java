@@ -7,6 +7,7 @@ public class Exercise09 {
     public int searchBinary(int[] arr, int num) {
         int l = 0;
         int r = arr.length;
+        if (r == 0) return -1;
 
         while (r - l > 1) {
             int mid = (l + r) / 2;
@@ -14,6 +15,7 @@ public class Exercise09 {
             if (num < arr[mid]) r = mid;
             else l = mid;
         }
-        return -1;
+
+        return num == arr[l] ? l : -1;
     }
 }

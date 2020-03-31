@@ -14,6 +14,6 @@ public class Exercise09 {
             if (num < arr[mid]) r = mid;
             else l = mid;
         }
-        return num == arr[l] ? l : -1;
+        return -1;
     }
 }

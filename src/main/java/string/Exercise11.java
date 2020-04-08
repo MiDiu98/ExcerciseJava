@@ -8,10 +8,7 @@ public class Exercise11 {
         int sub = 0;
 
         if (a.length() < b.length() || (a.length() == b.length() && a.compareTo(b) < 0)) {
-            String temp = a;
-            a = b;
-            b = temp;
-            return "-" + subBigInteger(a,b);
+            return "-" + subBigInteger(b,a);
         }
 
         while (count <= a.length()) {
@@ -30,11 +27,8 @@ public class Exercise11 {
     }
 
     public String standardizeNumber(String str) {
-        StringBuilder res = new StringBuilder(str);
-        int i;
-        for (i = 0; i < res.length(); i++) {
-            if (res.charAt(i) != '0') break;
-        }
-        return res.delete(0, i).toString();
+        int i = 0;
+        while(i < str.length() && str.charAt(i) == '0') i ++;
+        return str.substring(i);
     }
 }

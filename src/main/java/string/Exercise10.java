@@ -6,22 +6,21 @@ public class Exercise10 {
         int count = 1;
         int miss = 0;
         int sum = 0;
+        int length = Math.max(a.length(), b.length());
 
-        while (count <= b.length() && count <= a.length()) {
-            sum = miss + b.charAt(b.length() - count) + a.charAt(a.length() - count) - 2* '0';
-            miss = sum > 9 ? 1 : 0;
-            res.append(sum % 10);
-            count++;
-        }
-
-        while (count <= a.length() || count <= b.length()) {
-            sum = miss - '0' + (count <= a.length() ? a.charAt(a.length() - count) : b.charAt(b.length() - count));
-            miss = sum > 9 ? 1 : 0;
+        while(count <= length) {
+            sum = miss + digitFromRight(a, count) + digitFromRight(b, count);
+            miss = sum / 10;
             res.append(sum % 10);
             count++;
         }
         res = sum > 9 ? res.append("1") : res;
 
         return res.reverse().toString();
+    }
+
+    private static int digitFromRight(String str, int right){
+        if (str.length() - right < 0) return 0;
+        return str.charAt(str.length() - right) - '0';
     }
 }

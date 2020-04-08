@@ -6,12 +6,12 @@ public class Exercise11 {
         int count = 1;
         int miss = 0;
         int sub = 0;
-        boolean sign = true;
-        if (a.length() < b.length() || (a.length() == b.length() && a.charAt(0) < b.charAt(0))) {
+
+        if (a.length() < b.length() || (a.length() == b.length() && a.compareTo(b) < 0)) {
             String temp = a;
             a = b;
             b = temp;
-            sign = false;
+            return "-" + subBigInteger(a,b);
         }
 
         while (count <= a.length()) {
@@ -21,15 +21,20 @@ public class Exercise11 {
             count++;
         }
 
-        for (int i = res.length() - 1; i > 0; i--) {
-            if (res.charAt(i) != '0') break;
-            else res.deleteCharAt(i);
-        }
-        if (!sign) res.append('-');
-        return res.reverse().toString();
+        return standardizeNumber(res.reverse().toString());
     }
+
     private static int digitFromRight(String str, int right){
         if (str.length() - right < 0) return 0;
         return str.charAt(str.length() - right) - '0';
+    }
+
+    public String standardizeNumber(String str) {
+        StringBuilder res = new StringBuilder(str);
+        int i;
+        for (i = 0; i < res.length(); i++) {
+            if (res.charAt(i) != '0') break;
+        }
+        return res.delete(0, i).toString();
     }
 }

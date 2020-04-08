@@ -10,6 +10,7 @@ public class Exercise11Test {
         assertEquals(new Exercise11().subBigInteger("463","12"), "451");
         assertEquals(new Exercise11().subBigInteger("12","41"), "-29");
         assertEquals(new Exercise11().subBigInteger("100","99"), "1");
+        assertEquals(new Exercise11().subBigInteger("100","1"), "99");
         assertEquals(new Exercise11().subBigInteger("482","27932"), "-27450");
     }
 }

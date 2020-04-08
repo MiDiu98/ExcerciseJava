@@ -14,17 +14,10 @@ public class Exercise11 {
             sign = false;
         }
 
-        while (count <= b.length()) {
-            sub = a.charAt(a.length() - count) - b.charAt(b.length() - count) + miss;
-            miss = sub < 0 ? -1 : 0;
-            res.append(sub < 0 ? 10 + sub : sub);
-            count++;
-        }
-
         while (count <= a.length()) {
-            sub = a.charAt(a.length() - count) - '0' + miss;
+            sub = digitFromRight(a, count) - digitFromRight(b, count) + miss;
             miss = sub < 0 ? -1 : 0;
-            res.append(sub < 0 ? 10 + sub : sub);
+            res.append(10 * -miss + sub);
             count++;
         }
 
@@ -32,9 +25,11 @@ public class Exercise11 {
             if (res.charAt(i) != '0') break;
             else res.deleteCharAt(i);
         }
-
         if (!sign) res.append('-');
-
         return res.reverse().toString();
+    }
+    private static int digitFromRight(String str, int right){
+        if (str.length() - right < 0) return 0;
+        return str.charAt(str.length() - right) - '0';
     }
 }

@@ -24,12 +24,6 @@ public class StackNumber {
         return count == 0;
     }
 
-    public int search(int item) {
-        int i = count;
-        while (i >= 0 && stack[i] != item) i--;
-        return i >= 0 ? count - i : -1;
-    }
-
     public int size() {
         return count;
     }

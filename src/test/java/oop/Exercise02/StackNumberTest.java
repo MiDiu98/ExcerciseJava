@@ -15,8 +15,6 @@ public class StackNumberTest {
             stack.push(i);
 
         assertEquals(stack.size(), 5);
-        assertEquals(stack.search(1),4);
-        assertEquals(stack.search(10),-1);
         assertEquals(stack.peek(), 4);
         assertEquals(stack.pop(), 4);
         assertEquals(stack.size(), 4);

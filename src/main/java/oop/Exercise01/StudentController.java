@@ -1,11 +1,15 @@
 package oop.Exercise01;
 
-import com.fasterxml.jackson.core.type.TypeReference;
-import com.fasterxml.jackson.databind.ObjectMapper;
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
+import com.google.gson.reflect.TypeToken;
 
-import java.io.File;
+import java.io.FileReader;
+import java.io.FileWriter;
 import java.io.IOException;
+import java.lang.reflect.Type;
 import java.util.ArrayList;
+import java.util.Collection;
 import java.util.List;
 
 public class StudentController {
@@ -24,9 +28,9 @@ public class StudentController {
     }
 
     public boolean saveToFile(String path) {
-        ObjectMapper mapper = new ObjectMapper();
         try {
-            mapper.writerWithDefaultPrettyPrinter().writeValue(new File(path + "Student.json"), students);
+            Gson gson = new GsonBuilder().setPrettyPrinting().create();
+            gson.toJson(students, new FileWriter(path + "Student.json"));
             return true;
         } catch (IOException e) {
             e.printStackTrace();
@@ -35,10 +39,12 @@ public class StudentController {
     }
 
     public List<Student> loadFromFile(String path) {
-        ObjectMapper mapper = new ObjectMapper();
         List<Student> students = new ArrayList<Student>();
         try {
-            students = mapper.readValue(new File(path + "Student.json"), new TypeReference<List<Student>>() {});
+            Gson gson = new Gson();
+            Type collectionType = new TypeToken<Collection<Student>>(){}.getType();
+
+            students = gson.fromJson(new FileReader(path + "Student.json"), collectionType);
         } catch (IOException e) {
             e.printStackTrace();
         }

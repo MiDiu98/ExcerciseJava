@@ -6,6 +6,7 @@ import oop.Exercise01.StudentController;
 import org.junit.Test;
 
 import java.io.File;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Date;
@@ -53,7 +54,7 @@ public class StudentControllerTest {
     }
 
     @Test
-    public void test_saveToFile() {
+    public void test_saveToFile(){
         StudentController students = new StudentController();
         Student student = new Student(new StudentBuilder()
                                                 .id("01")
